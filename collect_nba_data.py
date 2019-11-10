@@ -50,7 +50,7 @@ ratings = {
     'march': {},
     'april': {}
 }
-
+'''
 month_count = 1 #pretty ugly, do it better
 for month_rating in ratings:
     PARAMS['Month'] = month_count
@@ -59,7 +59,7 @@ for month_rating in ratings:
     for team_info in data['resultSets'][0]['rowSet']:
         ratings[month_rating][team_info[1]] = team_info[7]
     month_count+=1
-
+'''
 #print(ratings)
 
 '''
@@ -159,7 +159,7 @@ for month_rating in ratings:
         personal_stats['tov'] = player_info[23]
         personal_stats['stl'] = player_info[24]
         personal_stats['blk'] = player_info[25]
-        player_stats[month_rating][player_info[1]] = personal_stats
+        player_stats[month_rating][player_info[1].replace(" ", "").lower()] = personal_stats
     month_count+=1
 
 with open('player_stats_per_month.json', 'w') as fp:
